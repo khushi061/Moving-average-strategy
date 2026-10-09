@@ -1,28 +1,38 @@
-# strategy Backtesting
+# Moving Average Strategy Backtesting
 
 ## Overview
 
-This project backtests a simple moving average crossover strategy using historical market data.
+A Python-based quantitative trading project that implements and evaluates a 50-day and 200-day Simple Moving Average (SMA) crossover strategy across SPY (S&P 500 ETF) and the Nifty 50 Index. The strategy is compared against buy-and-hold to analyse returns, risk, and performance across different market conditions.
 
 ## Strategy
 
-* 50-day Simple Moving Average (SMA)
-* 200-day Simple Moving Average (SMA)
-* Buy when the 50-day SMA is above the 200-day SMA.
-* Hold cash when the 50-day SMA is below the 200-day SMA.
+* **Indicators:** 50-day SMA and 200-day SMA.
+* **Entry:** Invest when the 50-day SMA is above the 200-day SMA.
+* **Exit:** Hold cash when the 50-day SMA falls below the 200-day SMA.
+* **Benchmark:** Buy-and-hold.
 
 ## Markets Tested
 
-* SPY (S&P 500 ETF)
-* Nifty 50 Index
+* **SPY:** S&P 500 ETF (US equity market).
+* **Nifty 50:** Major Indian equity market index.
 
-## Performance Metrics
+## Performance Results
 
-* Compound Annual Growth Rate (CAGR)
-* Volatility
-* Sharpe-like ratio
-* Maximum drawdown
-* Comparison with buy-and-hold
+Historical backtest results from January 2015 to October 2026.
+
+| Metric                                  | SPY Strategy | SPY Buy & Hold | Nifty 50 Strategy | Nifty 50 Buy & Hold |
+| --------------------------------------- | -----------: | -------------: | ----------------: | ------------------: |
+| CAGR                                    |        8.91% |         13.82% |             3.31% |               8.84% |
+| Volatility                              |       14.37% |         17.52% |            11.64% |              16.16% |
+| Sharpe-like Ratio (Zero Risk-Free Rate) |         0.67 |           0.83 |              0.34 |                0.61 |
+| Maximum Drawdown                        |       -33.7% |         -33.7% |            -42.0% |              -38.4% |
+
+### Key Findings
+
+* Buy-and-hold achieved higher annualised returns in both markets.
+* The moving average strategy had lower volatility in both markets.
+* The Nifty 50 strategy experienced a larger maximum drawdown than buy-and-hold.
+* The results demonstrate the trade-offs between trend-following strategies and passive market exposure.
 
 ## Technologies Used
 
@@ -32,30 +42,40 @@ This project backtests a simple moving average crossover strategy using historic
 * NumPy
 * Matplotlib
 
+## Project Structure
+
+* `backtest.py` — Strategy implementation and performance calculations.
+* `requirements.txt` — Required Python libraries.
+* `images/` — Generated performance charts.
+* `results/` — CSV files containing backtest results.
+
+## How to Run
+
+1. Install Python 3.
+
+2. Install the required libraries:
+
+   `pip install -r requirements.txt`
+
+3. Run the backtest:
+
+   `python3 backtest.py`
+
+The script downloads historical market data, calculates performance metrics, generates charts, and saves results as CSV files.
+
+## Code Quality
+
+The code is organised for readability and maintainability, following Python style conventions such as consistent indentation, descriptive variable names, and clear structure.
+
 ## Limitations
 
-This is an educational backtesting project. Results use historical data and may not reflect future performance. Transaction costs and market conditions can affect actual returns.
+This project is for educational and research purposes. Historical performance does not guarantee future results. Transaction costs, slippage, taxes, and real-world execution constraints can affect actual performance.
 
-## Backtesting Results
+## Future Improvements
 
-The strategy was tested on historical data from January 2015 to October 2026 and compared with a buy-and-hold approach.
+* Incorporate transaction costs and slippage.
+* Test additional technical indicators and strategy parameters.
+* Evaluate performance across different market conditions.
+* Explore risk management and parameter optimisation.
 
-### SPY (S&P 500 ETF)
-
-* Strategy CAGR: 8.91%
-* Buy-and-hold CAGR: 13.82%
-* Strategy volatility: 14.37%
-* Maximum drawdown: -33.7%
-
-### Nifty 50 Index
-
-* Strategy CAGR: 3.31%
-* Buy-and-hold CAGR: 8.84%
-* Strategy volatility: 11.64%
-* Strategy maximum drawdown: -42.0%
-
-### Key Observation
-
-The moving average strategy had lower volatility for both markets, but it underperformed buy-and-hold in overall returns. This shows that a simple trend-following strategy does not outperform the market in every situation.
-
-*Note: These are historical backtest results, not a guarantee of future performance. Transaction costs are simplified assumptions.*
+*Note: The Sharpe-like ratio assumes a zero risk-free rate. Results are based on historical data and simplified backtesting assumptions.*
