@@ -1,22 +1,22 @@
 # Moving Average Strategy Backtesting
 
-## Overview
+# Overview
 
 A Python-based quantitative trading project that implements and evaluates a 50-day and 200-day Simple Moving Average (SMA) crossover strategy across SPY (S&P 500 ETF) and the Nifty 50 Index. The strategy is compared against buy-and-hold to analyse returns, risk, and performance across different market conditions.
 
-## Strategy
+# Strategy
 
 * **Indicators:** 50-day SMA and 200-day SMA.
 * **Entry:** Invest when the 50-day SMA is above the 200-day SMA.
 * **Exit:** Hold cash when the 50-day SMA falls below the 200-day SMA.
 * **Benchmark:** Buy-and-hold.
 
-## Markets Tested
+# Markets Tested
 
 * **SPY:** S&P 500 ETF (US equity market).
 * **Nifty 50:** Major Indian equity market index.
 
-## Performance Results
+# Performance Results
 
 Historical backtest results from January 2015 to October 2026.
 
@@ -27,14 +27,14 @@ Historical backtest results from January 2015 to October 2026.
 | Sharpe-like Ratio (Zero Risk-Free Rate) |         0.67 |           0.83 |              0.34 |                0.61 |
 | Maximum Drawdown                        |       -33.7% |         -33.7% |            -42.0% |              -38.4% |
 
-### Key Findings
+## Key Findings
 
 * Buy-and-hold achieved higher annualised returns in both markets.
 * The moving average strategy had lower volatility in both markets.
 * The Nifty 50 strategy experienced a larger maximum drawdown than buy-and-hold.
 * The results demonstrate the trade-offs between trend-following strategies and passive market exposure.
 
-## Technologies Used
+# Technologies Used
 
 * Python
 * yfinance
@@ -42,14 +42,14 @@ Historical backtest results from January 2015 to October 2026.
 * NumPy
 * Matplotlib
 
-## Project Structure
+# Project Structure
 
 * `backtest.py` — Strategy implementation and performance calculations.
 * `requirements.txt` — Required Python libraries.
 * `images/` — Generated performance charts.
 * `results/` — CSV files containing backtest results.
 
-## How to Run
+# How to Run
 
 1. Install Python 3.
 
@@ -63,19 +63,18 @@ Historical backtest results from January 2015 to October 2026.
 
 The script downloads historical market data, calculates performance metrics, generates charts, and saves results as CSV files.
 
-## Code Quality
+# Code Quality
 
 The code is organised for readability and maintainability, following Python style conventions such as consistent indentation, descriptive variable names, and clear structure.
 
-## Limitations
+# Limitations
 
 This project is for educational and research purposes. Historical performance does not guarantee future results. Transaction costs, slippage, taxes, and real-world execution constraints can affect actual performance.
 
-## Future Improvements
+# Future Improvements
 
 * Incorporate transaction costs and slippage.
 * Test additional technical indicators and strategy parameters.
 * Evaluate performance across different market conditions.
 * Explore risk management and parameter optimisation.
 
-*Note: The Sharpe-like ratio assumes a zero risk-free rate. Results are based on historical data and simplified backtesting assumptions.*
